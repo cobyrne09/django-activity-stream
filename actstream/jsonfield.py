@@ -32,17 +32,17 @@ DataField = models.TextField
 
 if USE_JSONFIELD:
     try:
-        from jsonfield_compat import JSONField, register_app
+        from django_mysql.models import JSONField
         DataField = JSONField
+
     except ImportError as err:
         try:
-            from django_mysql.models import JSONField
+            from django.contrib.postgres.fields import JSONField
             DataField = JSONField
 
         except ImportError:
             raise ImproperlyConfigured(
-                'You must either install django-jsonfield + '
-                'django-jsonfield-compat, or django-mysql as an '
+                'You must either install django-mysql, or use the default, django.contrib.postgres '
                 'alternative, if you wish to use a JSONField on your '
                 'actions'
             )
