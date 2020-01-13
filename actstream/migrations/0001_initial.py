@@ -21,6 +21,7 @@ class Migration(migrations.Migration):
             name='Action',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, help_text='', auto_created=True)),
+                ('uuid', models.UUIDField(default=uuid.uuid4, editable=False, unique=True)),
                 ('actor_object_id', models.CharField(max_length=255, db_index=True, help_text='')),
                 ('verb', models.CharField(max_length=255, db_index=True, help_text='')),
                 ('description', models.TextField(blank=True, null=True, help_text='')),
