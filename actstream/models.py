@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from uuid import uuid4
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.db import models
@@ -71,6 +72,7 @@ class Action(models.Model):
         <a href="http://oebfare.com/">brosner</a> commented on <a href="http://github.com/pinax/pinax">pinax/pinax</a> 2 hours ago
 
     """
+    uuid = models.UUIDField(primary_key=False, unique=True, default=uuid4, editable=False)
     actor_content_type = models.ForeignKey(
         ContentType, related_name='actor',
         on_delete=models.CASCADE, db_index=True
