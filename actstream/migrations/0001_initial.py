@@ -5,6 +5,7 @@ from django.db import models, migrations
 import django.db.models.deletion
 import django.utils.timezone
 from django.conf import settings
+import uuid
 
 from actstream.jsonfield import DataField
 
